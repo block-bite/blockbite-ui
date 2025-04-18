@@ -1,7 +1,7 @@
-import { Wrap } from '@components/ui/Wrap';
-import { useEffect, useState } from '@wordpress/element';
+import { Wrap } from "./Wrap";
+import { useEffect, useState } from "@wordpress/element";
 
-import { RangeControl as WordpressRangeControl } from '@wordpress/components';
+import { RangeControl as WordpressRangeControl } from "@wordpress/components";
 
 export type RangeControlType = {
   defaultValue: string;

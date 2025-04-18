@@ -1,6 +1,6 @@
-import { Wrap } from '@components/ui/Wrap';
-import { FocalPointPicker } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
+import { Wrap } from "./Wrap";
+import { FocalPointPicker } from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
 
 type FocalPointControlProps = {
   defaultValue: string;
@@ -20,18 +20,20 @@ const FocalPointControl: React.FC<FocalPointControlProps> = ({
 
   useEffect(() => {
     onValueChange(
-      `[${(focalPoint.x * 100).toFixed(2)}%_${(focalPoint.y * 100).toFixed(2)}%]`
+      `[${(focalPoint.x * 100).toFixed(2)}%_${(focalPoint.y * 100).toFixed(
+        2
+      )}%]`
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focalPoint]);
 
   useEffect(() => {
     // default value is in the format of [x%_y%] parse to get the x and y values
-    if (defaultValue.includes('%')) {
+    if (defaultValue.includes("%")) {
       const [x, y] = defaultValue
-        .replace('[', '')
-        .replace('%]', '')
-        .split('_')
+        .replace("[", "")
+        .replace("%]", "")
+        .split("_")
         .map((value: string) => parseFloat(value) / 100);
 
       setFocalPoint({

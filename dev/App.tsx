@@ -1,24 +1,24 @@
 import React from "react";
 
-import AutocompleteDropdown from "./components/ui/AutocompleteDropdown";
-import { Badge } from "./components/ui/Badge";
-import BitePreview from "./components/ui/BitePreview";
-import { DisappearingMessage } from "./components/ui/DisappearingMessage";
-import FloatingPanel from "./components/ui/FloatingPanel";
-import FocalPointControl from "./components/ui/FocalPointControl";
-import LinkPicker from "./components/ui/LinkPicker";
-import MediaPicker from "./components/ui/MediaPicker";
-import MetricsControl from "./components/ui/MetricsControl";
-// import { NewWindowPortal } from "./components/ui/NewWindowPortal";
-import { PasswordInput } from "./components/ui/PasswordInput";
-import RangeSlider from "./components/ui/RangeSlider";
-import ResponsiveImage from "./components/ui/ResponsiveImage";
-import SectionList from "./components/ui/SectionList";
-import SingleBlockTypeAppender from "./components/ui/SingleBlockTypeAppender";
-import { TabsWrapper } from "./components/ui/Tabs";
-import { TextControl } from "./components/ui/TextControl";
-import { TextControlLabel } from "./components/ui/TextControlLabel";
-import { ToggleGroup } from "./components/ui/ToggleGroup";
+import AutocompleteDropdown from "../src/AutocompleteDropdown";
+import { Badge } from "../src/Badge";
+import BitePreview from "../src/BitePreview";
+import { DisappearingMessage } from "../src/DisappearingMessage";
+import FloatingPanel from "../src/FloatingPanel";
+import FocalPointControl from "../src/FocalPointControl";
+import LinkPicker from "../src/LinkPicker";
+import MediaPicker from "../src/MediaPicker";
+import MetricsControl from "../src/MetricsControl";
+// import { NewWindowPortal } from "../src/NewWindowPortal";
+import { PasswordInput } from "../src/PasswordInput";
+import RangeSlider from "../src/RangeSlider";
+import ResponsiveImage from "../src/ResponsiveImage";
+import SectionList from "../src/SectionList";
+import SingleBlockTypeAppender from "../src/SingleBlockTypeAppender";
+import { TabsWrapper } from "../src/Tabs";
+import { TextControl } from "../src/TextControl";
+import { TextControlLabel } from "../src/TextControlLabel";
+import { ToggleGroup } from "../src/ToggleGroup";
 
 const App = () => {
   return (

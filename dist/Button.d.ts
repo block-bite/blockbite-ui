@@ -2,11 +2,11 @@ type ButtonProps = {
     children?: React.ReactNode;
     asChild?: boolean;
     className?: string;
-    display?: 'icon' | 'icon-lg' | 'label' | 'auto' | '' | null;
+    display?: "icon" | "icon-lg" | "label" | "auto" | "" | null;
     onClick?: () => void;
     label?: string;
-    size?: 'small' | 'default' | 'compact';
-    variant?: 'primary' | 'secondary' | 'link' | 'primary' | 'tertiary';
+    size?: "small" | "default" | "compact";
+    variant?: "primary" | "secondary" | "link" | "primary" | "tertiary";
     icon?: any;
     disabled?: boolean;
 };

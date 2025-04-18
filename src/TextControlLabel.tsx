@@ -1,6 +1,6 @@
-import Pencil1Icon from '@blockbite/icons/dist/Pencil1';
-import { Wrap } from '@components/ui/Wrap';
-import { TextControl } from '@wordpress/components';
+import Pencil1Icon from "@blockbite/icons/dist/Pencil1";
+import { Wrap } from "./Wrap";
+import { TextControl } from "@wordpress/components";
 
 type TextControlLabelProps = {
   className?: string;
@@ -20,7 +20,7 @@ export const TextControlLabel = ({
       <span className="outline-b-2 relative block -outline-offset-2 outline-black">
         <TextControl type="text" value={defaultValue} onChange={onChange} />
         <Pencil1Icon className="absolute right-1 top-2" />
-      </span>{' '}
+      </span>{" "}
       {children}
     </Wrap>
   );

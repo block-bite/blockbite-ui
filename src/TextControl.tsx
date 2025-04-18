@@ -1,6 +1,6 @@
-import { Wrap } from '@components/ui/Wrap';
-import { forwardRef } from '@wordpress/element';
-import classNames from 'classnames';
+import { Wrap } from "./Wrap";
+import { forwardRef } from "@wordpress/element";
+import classNames from "classnames";
 
 type TextControlProps = {
   className?: string;
@@ -29,16 +29,18 @@ export const TextControl = forwardRef<HTMLInputElement, TextControlProps>(
       readOnly,
       placeholder,
       onBlur,
-      type = 'text',
+      type = "text",
       label,
-      helper = '',
+      helper = "",
     },
     ref
   ) => {
-    const fieldId = `text-control-${Math.random().toString(36).substring(2, 15)}`;
+    const fieldId = `text-control-${Math.random()
+      .toString(36)
+      .substring(2, 15)}`;
 
     return (
-      <Wrap className={classNames('flex items-center p-0', className)}>
+      <Wrap className={classNames("flex items-center p-0", className)}>
         {label ? (
           <label htmlFor={fieldId} className="text-primary !m-0 !mb-0 !mr-2">
             {label}
@@ -47,7 +49,7 @@ export const TextControl = forwardRef<HTMLInputElement, TextControlProps>(
         <input
           id={fieldId}
           className={classNames(
-            'border-primary !m-0 !mb-0 h-[32px] !rounded-none border border-opacity-70 focus:outline-none focus:ring-0',
+            "border-primary !m-0 !mb-0 h-[32px] !rounded-none border border-opacity-70 focus:outline-none focus:ring-0",
             inputClassName
           )}
           type={type}
@@ -69,4 +71,4 @@ export const TextControl = forwardRef<HTMLInputElement, TextControlProps>(
   }
 );
 
-TextControl.displayName = 'TextControl'; // Recommended for debugging
+TextControl.displayName = "TextControl"; // Recommended for debugging

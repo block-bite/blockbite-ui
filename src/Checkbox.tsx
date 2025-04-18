@@ -1,6 +1,6 @@
-import { Wrap } from '@components/ui/Wrap';
-import { CheckboxControl } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
+import { Wrap } from "./Wrap";
+import { CheckboxControl } from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
 
 type CheckboxProps = {
   id: string;

@@ -1,21 +1,21 @@
-import { Wrap } from '@components/ui/Wrap';
-import apiFetch from '@wordpress/api-fetch';
-import { TextControl } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { Wrap } from "./Wrap";
+import apiFetch from "@wordpress/api-fetch";
+import { TextControl } from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
 
 export default function LinkPicker(props) {
-  const [activeKeyword, setActiveKeyword] = useState('');
+  const [activeKeyword, setActiveKeyword] = useState("");
   const [links, setLinks] = useState<
     Array<{ id: number; url: string; title: string; post_type: string }>
   >([]);
   const [activeLink, setActiveLink] = useState({
-    url: '',
-    title: '',
+    url: "",
+    title: "",
   });
 
   useEffect(() => {
-    if (activeKeyword === '') return;
+    if (activeKeyword === "") return;
     setLinks(null);
     apiFetch({
       path: `/blockbite/v1/block-helpers/get-links/${activeKeyword}`,
@@ -38,7 +38,7 @@ export default function LinkPicker(props) {
   }, [activeKeyword]);
 
   useEffect(() => {
-    if (activeLink.url !== '') {
+    if (activeLink.url !== "") {
       props.parentCallback(activeLink);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,11 +47,11 @@ export default function LinkPicker(props) {
   return (
     <Wrap className="blockbite--editor-linkwrap">
       <TextControl
-        label={__('Search link', 'blockbitelinks')}
+        label={__("Search link", "blockbitelinks")}
         value={activeKeyword}
         placeholder="Example: About"
         onChange={(value) => setActiveKeyword(value)}
-        help={__('Type a post, page, title', 'blockbitelinks')}
+        help={__("Type a post, page, title", "blockbitelinks")}
       />
       {activeKeyword ? (
         <div className="blockbite--editor-linklist">
@@ -59,7 +59,7 @@ export default function LinkPicker(props) {
             links={links}
             onActiveLink={(link) => [
               setActiveLink({ ...link }),
-              setActiveKeyword(''),
+              setActiveKeyword(""),
             ]}
           />
         </div>

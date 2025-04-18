@@ -13,7 +13,9 @@ const d = ({
   });
   return s(() => {
     a(
-      `[${(t.x * 100).toFixed(2)}%_${(t.y * 100).toFixed(2)}%]`
+      `[${(t.x * 100).toFixed(2)}%_${(t.y * 100).toFixed(
+        2
+      )}%]`
     );
   }, [t]), s(() => {
     if (e.includes("%")) {

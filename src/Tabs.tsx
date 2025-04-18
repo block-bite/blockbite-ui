@@ -1,7 +1,7 @@
-import { Wrap } from '@components/ui/Wrap';
-import { TabPanel } from '@wordpress/components';
-import { createContext, useContext, useState } from '@wordpress/element';
-import classNames from 'classnames';
+import { Wrap } from "./Wrap";
+import { TabPanel } from "@wordpress/components";
+import { createContext, useContext, useState } from "@wordpress/element";
+import classNames from "classnames";
 
 const TabsContext = createContext<{
   activeTab: string | undefined;
@@ -25,7 +25,7 @@ export const TabsWrapper = ({
 }: TabsProps) => {
   const isControlled = value !== undefined;
 
-  const [internalValue, setInternalValue] = useState(defaultValue || '');
+  const [internalValue, setInternalValue] = useState(defaultValue || "");
 
   const activeTab = isControlled ? value : internalValue;
 
@@ -71,7 +71,7 @@ export const TabsList = ({
 
   return (
     <TabPanel
-      className={classNames('tabs-list', className)}
+      className={classNames("tabs-list", className)}
       tabs={options}
       onSelect={(tabName) => {
         setActiveTab(tabName);

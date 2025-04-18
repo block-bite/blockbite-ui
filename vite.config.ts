@@ -3,11 +3,12 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import fs from "fs";
 
-const uiDir = path.resolve(__dirname, "src/components/ui");
+// Update path to new ui directory
+const uiDir = path.resolve(__dirname, "src/");
 
-// alias fix
+// Optional alias for easier imports
 const alias = {
-  "@components": path.resolve(__dirname, "src/components"),
+  "@ui": uiDir,
 };
 
 const inputEntries = fs
@@ -28,7 +29,7 @@ export default defineConfig({
     target: "esnext",
     outDir: "dist",
     lib: {
-      entry: path.resolve(__dirname, "src/ui/index.ts"),
+      entry: path.resolve(uiDir, "index.ts"),
       formats: ["es"],
     },
     rollupOptions: {
@@ -36,7 +37,7 @@ export default defineConfig({
       output: {
         entryFileNames: "[name].js",
         preserveModules: true,
-        preserveModulesRoot: "src/ui",
+        preserveModulesRoot: "src/", // <- updated
       },
       external: [
         "react",
@@ -47,6 +48,7 @@ export default defineConfig({
         "@wordpress/element",
         "@blockbite/icons",
       ],
+      // exclude _dev folder in src
     },
   },
 });

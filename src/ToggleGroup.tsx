@@ -1,21 +1,21 @@
-import { Wrap } from '@components/ui/Wrap';
-import { memo, useEffect, useState } from '@wordpress/element';
+import { Wrap } from "./Wrap";
+import { memo, useEffect, useState } from "@wordpress/element";
 
 import {
   __experimentalToggleGroupControlOptionIcon as ToggleGroupControlIcon,
   __experimentalToggleGroupControlOption as ToggleGroupControlOption,
   __experimentalToggleGroupControl as WordpressToggleGroupControl,
-} from '@wordpress/components';
-import classNames from 'classnames';
+} from "@wordpress/components";
+import classNames from "classnames";
 
 type ToggleProps = {
   className?: string;
   options: { value: string; label: string; icon?: React.ReactElement }[];
   defaultPressed: string;
   label?: string | boolean;
-  variant?: 'primary' | 'secondary';
-  display?: 'icon' | 'label';
-  size?: 'small' | 'default' | 'compact';
+  variant?: "primary" | "secondary";
+  display?: "icon" | "label";
+  size?: "small" | "default" | "compact";
   onPressedChange: (value: string) => void;
 };
 
@@ -24,11 +24,11 @@ const ToggleGroup: React.FC<ToggleProps> = memo(
     className,
     options,
     defaultPressed,
-    display = 'label',
+    display = "label",
     label = false,
     onPressedChange,
   }) => {
-    const [isPressed, setIsPressed] = useState<string>('');
+    const [isPressed, setIsPressed] = useState<string>("");
 
     const handlePressChange = (value: string) => {
       onPressedChange(value);
@@ -43,10 +43,10 @@ const ToggleGroup: React.FC<ToggleProps> = memo(
         <WordpressToggleGroupControl
           isBlock
           value={isPressed}
-          label={typeof label === 'string' ? label : ''}
+          label={typeof label === "string" ? label : ""}
         >
           {options.map((option) =>
-            display === 'icon' ? (
+            display === "icon" ? (
               <ToggleGroupControlIcon
                 icon={option.icon}
                 label={option.label}

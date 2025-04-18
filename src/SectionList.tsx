@@ -1,12 +1,12 @@
-import { Wrap } from '@components/ui/Wrap';
-import { Button } from '@wordpress/components';
-import { useRef, useState } from '@wordpress/element';
+import { Wrap } from "./Wrap";
+import { Button } from "@wordpress/components";
+import { useRef, useState } from "@wordpress/element";
 
-import { TextControl } from '@components/ui/TextControl';
-import classNames from 'classnames';
+import { TextControl } from "./TextControl";
+import classNames from "classnames";
 
-import PlusIcon from '@blockbite/icons/dist/Plus';
-import TrashIcon from '@blockbite/icons/dist/Trash';
+import PlusIcon from "@blockbite/icons/dist/Plus";
+import TrashIcon from "@blockbite/icons/dist/Trash";
 
 type SectionTypeProps = {
   id: string;
@@ -38,8 +38,8 @@ const SectionList = ({
   addons,
 }: SectionListProps) => {
   const [renameSection, setRenameSection] = useState({
-    id: '',
-    name: '',
+    id: "",
+    name: "",
   });
   const textFieldRef = useRef<HTMLInputElement | null>(null);
 
@@ -71,7 +71,7 @@ const SectionList = ({
 
     setSections(newSections);
     setActiveSection(newActiveSection);
-    setCode(newSections.find((s) => s.id === newActiveSection)?.code || '');
+    setCode(newSections.find((s) => s.id === newActiveSection)?.code || "");
   };
 
   const onBlurHandler = (value) => {
@@ -85,8 +85,8 @@ const SectionList = ({
     );
 
     setRenameSection({
-      id: '',
-      name: '',
+      id: "",
+      name: "",
     });
   };
 
@@ -103,9 +103,9 @@ const SectionList = ({
               >
                 <button
                   className={classNames(
-                    'text-gray-medium w-full truncate bg-opacity-50 px-3 py-2 text-left text-sm/6 font-semibold hover:bg-easy hover:text-wordpress',
+                    "text-gray-medium w-full truncate bg-opacity-50 px-3 py-2 text-left text-sm/6 font-semibold hover:bg-easy hover:text-wordpress",
                     {
-                      'bg-easy': section.id === activeSection,
+                      "bg-easy": section.id === activeSection,
                     }
                   )}
                   onClick={() => {

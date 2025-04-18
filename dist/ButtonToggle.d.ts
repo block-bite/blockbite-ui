@@ -3,10 +3,10 @@ type ButtonToggleProps = {
     className?: string;
     value: string;
     defaultPressed: string;
-    variant?: 'primary' | 'secondary';
-    size?: 'small' | 'default' | 'compact';
+    variant?: "primary" | "secondary";
+    size?: "small" | "default" | "compact";
     icon?: any;
-    display?: 'icon' | 'label' | '' | null;
+    display?: "icon" | "label" | "" | null;
     onPressedChange: (value: string) => void;
     label?: string;
 };
@@ -22,10 +22,10 @@ type ButtonToggleGroupProps = {
     options: ButtonToggleGroupOptionProp[];
     defaultPressed?: string;
     toggle?: boolean;
-    size?: 'small' | 'default' | 'compact';
+    size?: "small" | "default" | "compact";
     tabs?: boolean;
-    display?: 'icon' | 'label' | '' | null;
-    variant?: 'primary' | 'secondary';
+    display?: "icon" | "label" | "" | null;
+    variant?: "primary" | "secondary";
     stretch?: boolean;
     icon?: any;
     onPressedChange?: (value: string) => void;

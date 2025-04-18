@@ -1,7 +1,7 @@
-import { Wrap } from '@components/ui/Wrap';
-import { ToggleControl as Switch } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
-import classNames from 'classnames';
+import { Wrap } from "./Wrap";
+import { ToggleControl as Switch } from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
+import classNames from "classnames";
 
 type ToggleSwitchProps = {
   label?: string;
@@ -23,7 +23,7 @@ export const ToggleSwitch = ({
   }, [checked]);
 
   return (
-    <Wrap className={classNames(className, 'flex items-center gap-2')}>
+    <Wrap className={classNames(className, "flex items-center gap-2")}>
       <Switch
         checked={isChecked}
         label={label}

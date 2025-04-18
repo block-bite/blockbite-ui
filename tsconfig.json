@@ -5,19 +5,15 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "NodeNext",
-    "target": "es6",
+    "target": "ES6",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "baseUrl": "src",
-    "paths": {
-      "@components/*": ["components/*"],
-     
-    },
     "resolveJsonModule": true,
     "moduleResolution": "nodenext"
   },
-  "include": ["src/types/**/*","src/**/*"],
+  "include": ["src/types/**/*", "src/**/*","global.d.ts",],
   "exclude": ["node_modules", "build"]
 }

@@ -1,31 +1,31 @@
-import ButtonToggleGroup from '@components/ui/ButtonToggle';
-import { DropdownPicker } from '@components/ui/DropdownPicker';
-import { Popover } from '@components/ui/Popover';
-import RangeControl from '@components/ui/RangeSlider';
-import { TextControl } from '@components/ui/TextControl';
-import { Wrap } from '@components/ui/Wrap';
-import { useEffect, useState } from '@wordpress/element';
+import ButtonToggleGroup from "./ButtonToggle";
+import { DropdownPicker } from "./DropdownPicker";
+import { Popover } from "./Popover";
+import RangeControl from "./RangeSlider";
+import { TextControl } from "./TextControl";
+import { Wrap } from "./Wrap";
+import { useEffect, useState } from "@wordpress/element";
 
-import ColumnSpacingIcon from '@blockbite/icons/dist/ColumnSpacing';
-import DesktopIcon from '@blockbite/icons/dist/Desktop';
-import GridIcon from '@blockbite/icons/dist/Grid';
-import PercentageIcon from '@blockbite/icons/dist/Percentage';
-import SliderIcon from '@blockbite/icons/dist/Slider';
-import TailwindUnitIcon from '@blockbite/icons/dist/Tailwind';
-import has from 'lodash/has';
+import ColumnSpacingIcon from "@blockbite/icons/dist/ColumnSpacing";
+import DesktopIcon from "@blockbite/icons/dist/Desktop";
+import GridIcon from "@blockbite/icons/dist/Grid";
+import PercentageIcon from "@blockbite/icons/dist/Percentage";
+import SliderIcon from "@blockbite/icons/dist/Slider";
+import TailwindUnitIcon from "@blockbite/icons/dist/Tailwind";
+import has from "lodash/has";
 
 type MetricsControlProps = {
   defaultUnit: string;
   defaultValue: string;
   units?:
     | string[]
-    | 'native'
-    | 'percent'
-    | 'grid'
-    | 'arbitrary'
-    | 'fluid'
-    | 'screen'
-    | 'all';
+    | "native"
+    | "percent"
+    | "grid"
+    | "arbitrary"
+    | "fluid"
+    | "screen"
+    | "all";
   inputClassName?: string;
   onValueChange: (value: string) => void;
   onUnitChange: (unit: string) => void;
@@ -36,14 +36,14 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
   defaultValue,
   onValueChange,
   onUnitChange,
-  inputClassName = 'w-[75px]',
+  inputClassName = "w-[75px]",
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentOptions, setCurrentOptions] = useState<string[]>([]);
 
   // Use local state for defaultUnit and defaultValue
   const [unit, setUnit] = useState(defaultUnit);
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>("");
   const [resetValue, setResetValue] = useState<string | number>(defaultValue);
 
   // Set initial state from props
@@ -59,14 +59,14 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
   // Save last value after popover close to support "reset" functionality
   // Only apply to arbitrary units
   useEffect(() => {
-    if (!isVisible && unit === 'arbitrary') {
+    if (!isVisible && unit === "arbitrary") {
       setResetValue(value);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible]);
 
   const showOptions = (u: string) => {
-    if (u !== 'arbitrary' && has(bb.codex.units.spacing, u)) {
+    if (u !== "arbitrary" && has(bb.codex.units.spacing, u)) {
       const options =
         bb.codex.units.spacing[u as keyof typeof bb.codex.units.spacing];
       setCurrentOptions(
@@ -81,14 +81,14 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
   const unitOptions = [
     {
       icon: <TailwindUnitIcon />,
-      label: 'Tailwind CSS Units',
-      value: 'native',
+      label: "Tailwind CSS Units",
+      value: "native",
     },
-    { icon: <PercentageIcon />, label: 'Percentage Units', value: 'percent' },
-    { icon: <GridIcon />, label: 'Grid Units', value: 'grid' },
-    { icon: <DesktopIcon />, label: 'Screen Units', value: 'screen' },
-    { icon: <SliderIcon />, label: 'Pixel Units', value: 'arbitrary' },
-    { icon: <ColumnSpacingIcon />, label: 'Fluid Units', value: 'fluid' },
+    { icon: <PercentageIcon />, label: "Percentage Units", value: "percent" },
+    { icon: <GridIcon />, label: "Grid Units", value: "grid" },
+    { icon: <DesktopIcon />, label: "Screen Units", value: "screen" },
+    { icon: <SliderIcon />, label: "Pixel Units", value: "arbitrary" },
+    { icon: <ColumnSpacingIcon />, label: "Fluid Units", value: "fluid" },
   ];
 
   return (
@@ -97,14 +97,14 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
         inputClassName={inputClassName}
         defaultValue={
           // Remove the "b_" prefix for grid units
-          unit === 'grid' ? value.replace('b_', '') : value
+          unit === "grid" ? value.replace("b_", "") : value
         }
-        onClick={() => unit !== 'arbitrary' && showOptions(unit)}
+        onClick={() => unit !== "arbitrary" && showOptions(unit)}
         onChange={(newValue) => {
           setValue(newValue);
           onValueChange(newValue);
         }}
-        readOnly={unit !== 'arbitrary'}
+        readOnly={unit !== "arbitrary"}
       >
         <Popover
           visible={isVisible}
@@ -112,7 +112,7 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
           className="w-[300px] bg-white shadow-sm"
           onVisibleChange={setIsVisible}
         >
-          {unit === 'arbitrary' ? (
+          {unit === "arbitrary" ? (
             <RangeControl
               defaultValue={value}
               label="Pixel Value"
@@ -137,8 +137,8 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
               options={currentOptions.map((option) => ({
                 value: option,
                 label:
-                  unit === 'grid'
-                    ? option.toString().replace('b_', '')
+                  unit === "grid"
+                    ? option.toString().replace("b_", "")
                     : option,
                 onClick: () => {
                   setValue(option);
@@ -146,7 +146,7 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
                 },
               }))}
               size="small"
-              defaultPressed={value?.toString() || ''}
+              defaultPressed={value?.toString() || ""}
               onPressedChange={(newValue: string) => {
                 setValue(newValue);
                 onValueChange(newValue);
@@ -160,9 +160,9 @@ const MetricsControl: React.FC<MetricsControlProps> = ({
           defaultValue={unit}
           options={unitOptions}
           onPressedChange={(selectedUnit) => {
-            if (selectedUnit === 'reset') {
-              setValue('');
-              onValueChange('');
+            if (selectedUnit === "reset") {
+              setValue("");
+              onValueChange("");
               setIsVisible(false);
             } else {
               setUnit(selectedUnit);

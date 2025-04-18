@@ -7,9 +7,9 @@ type ToggleProps = {
     }[];
     defaultPressed: string;
     label?: string | boolean;
-    variant?: 'primary' | 'secondary';
-    display?: 'icon' | 'label';
-    size?: 'small' | 'default' | 'compact';
+    variant?: "primary" | "secondary";
+    display?: "icon" | "label";
+    size?: "small" | "default" | "compact";
     onPressedChange: (value: string) => void;
 };
 declare const ToggleGroup: React.FC<ToggleProps>;

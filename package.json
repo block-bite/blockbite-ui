@@ -16,7 +16,8 @@
   ],
   "exports": {
     "./*": {
-      "import": "./dist/*.js"
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "scripts": {

@@ -1,7 +1,7 @@
 import ChevronDownIcon from "@blockbite/icons/dist/ChevronDown";
 import type { OptionProps } from "./types";
-import { ButtonToggle } from "@components/ui/ButtonToggle";
-import { Wrap } from "@components/ui/Wrap";
+import { ButtonToggle } from "./ButtonToggle";
+import { Wrap } from "./Wrap";
 import { Button, Dropdown, TextControl } from "@wordpress/components";
 import { useEffect, useState } from "@wordpress/element";
 import classNames from "classnames";

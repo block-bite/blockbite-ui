@@ -1,18 +1,18 @@
-import { Icon } from '@components/ui/Icon';
-import { Wrap } from '@components/ui/Wrap';
-import { Button as WordpressButton } from '@wordpress/components';
-import { memo, useCallback, useEffect, useState } from '@wordpress/element';
-import classNames from 'classnames';
+import { Icon } from "./Icon";
+import { Wrap } from "./Wrap";
+import { Button as WordpressButton } from "@wordpress/components";
+import { memo, useCallback, useEffect, useState } from "@wordpress/element";
+import classNames from "classnames";
 
 type ButtonToggleProps = {
   children?: React.ReactNode;
   className?: string;
   value: string;
   defaultPressed: string;
-  variant?: 'primary' | 'secondary';
-  size?: 'small' | 'default' | 'compact';
+  variant?: "primary" | "secondary";
+  size?: "small" | "default" | "compact";
   icon?: any;
-  display?: 'icon' | 'label' | '' | null;
+  display?: "icon" | "label" | "" | null;
   onPressedChange: (value: string) => void;
   label?: string;
 };
@@ -30,10 +30,10 @@ type ButtonToggleGroupProps = {
   options: ButtonToggleGroupOptionProp[];
   defaultPressed?: string;
   toggle?: boolean;
-  size?: 'small' | 'default' | 'compact';
+  size?: "small" | "default" | "compact";
   tabs?: boolean;
-  display?: 'icon' | 'label' | '' | null;
-  variant?: 'primary' | 'secondary';
+  display?: "icon" | "label" | "" | null;
+  variant?: "primary" | "secondary";
   stretch?: boolean;
   icon?: any;
   onPressedChange?: (value: string) => void;
@@ -44,12 +44,12 @@ const ButtonToggle: React.FC<ButtonToggleProps> = memo(
     children,
     className,
     value,
-    variant = 'secondary',
+    variant = "secondary",
     defaultPressed,
     onPressedChange,
     icon,
-    size = 'compact',
-    display = 'auto',
+    size = "compact",
+    display = "auto",
     label,
   }) => {
     const [isPressed, setIsPressed] = useState(false);
@@ -68,7 +68,7 @@ const ButtonToggle: React.FC<ButtonToggleProps> = memo(
     return (
       <WordpressButton
         aria-label={label}
-        className={classNames(className, 'blockbite-ui__button--default')}
+        className={classNames(className, "blockbite-ui__button--default")}
         value={value}
         size={size}
         label={label}
@@ -78,8 +78,8 @@ const ButtonToggle: React.FC<ButtonToggleProps> = memo(
         onClick={handleClick}
       >
         {icon && <Icon icon={icon} />}
-        {display !== 'icon' ? children : null}
-        {label && !children && display !== 'icon' ? <span>{label}</span> : null}
+        {display !== "icon" ? children : null}
+        {label && !children && display !== "icon" ? <span>{label}</span> : null}
       </WordpressButton>
     );
   }
@@ -88,13 +88,13 @@ const ButtonToggle: React.FC<ButtonToggleProps> = memo(
 const ButtonToggleGroup: React.FC<ButtonToggleGroupProps> = memo(
   ({
     className,
-    defaultPressed = '',
+    defaultPressed = "",
     toggle = true,
-    display = 'auto',
+    display = "auto",
     options,
-    size = 'compact',
+    size = "compact",
     tabs = false,
-    variant = 'secondary',
+    variant = "secondary",
     stretch = false,
     onPressedChange,
   }) => {
@@ -106,7 +106,7 @@ const ButtonToggleGroup: React.FC<ButtonToggleGroupProps> = memo(
 
     const handleButtonClick = useCallback(
       (value: string) => {
-        const newValue = toggle && isPressed === value ? '' : value;
+        const newValue = toggle && isPressed === value ? "" : value;
         setIsPressed(newValue);
         onPressedChange?.(newValue);
       },
@@ -114,9 +114,9 @@ const ButtonToggleGroup: React.FC<ButtonToggleGroupProps> = memo(
     );
 
     const renderContent = (option: ButtonToggleGroupOptionProp) => {
-      if (display === 'icon' && option?.icon) {
+      if (display === "icon" && option?.icon) {
         return <Icon icon={option.icon} />;
-      } else if (display === 'label') {
+      } else if (display === "label") {
         return <span>{option.label}</span>;
       }
       return (
@@ -130,17 +130,17 @@ const ButtonToggleGroup: React.FC<ButtonToggleGroupProps> = memo(
     return (
       <Wrap
         className={classNames(
-          'blockbite-ui__button-group flex flex-wrap gap-1',
+          "blockbite-ui__button-group flex flex-wrap gap-1",
           className,
-          tabs ? 'blockbite-ui__button-group--tabs' : ''
+          tabs ? "blockbite-ui__button-group--tabs" : ""
         )}
       >
         {options.map((option, index) => (
           <WordpressButton
             key={`ButtonToggleGroup__${option.value}__${option.label}__${index}`}
-            className={classNames('blockbite-ui__button--default', {
+            className={classNames("blockbite-ui__button--default", {
               grow: stretch,
-              'justify-center': stretch,
+              "justify-center": stretch,
             })}
             // tooltip
             aria-label={option.label}

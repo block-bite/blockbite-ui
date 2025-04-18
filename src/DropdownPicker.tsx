@@ -1,8 +1,8 @@
-import ChevronDownIcon from '@blockbite/icons/dist/ChevronDown';
-import { Icon } from '@components/ui/Icon';
-import { DropdownMenu } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
-import classNames from 'classnames';
+import ChevronDownIcon from "@blockbite/icons/dist/ChevronDown";
+import { Icon } from "./Icon";
+import { DropdownMenu } from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
+import classNames from "classnames";
 
 type DropdownPickerProps = {
   label?: string;
@@ -45,11 +45,11 @@ export const DropdownPicker = ({
     })),
     {
       icon: <Icon icon={defaultIcon} />,
-      title: 'Reset',
-      value: 'reset',
+      title: "Reset",
+      value: "reset",
       onClick: () => {
-        setCurrentOption('reset');
-        onPressedChange('reset');
+        setCurrentOption("reset");
+        onPressedChange("reset");
       },
     },
   ];
@@ -58,7 +58,7 @@ export const DropdownPicker = ({
     <DropdownMenu
       controls={allOptions}
       className={classNames(
-        'blockbite-ui__dropdown-picker border-primary border',
+        "blockbite-ui__dropdown-picker border-primary border",
         className
       )}
       icon={
@@ -66,7 +66,7 @@ export const DropdownPicker = ({
           <Icon icon={defaultIcon} />
         )
       }
-      label={label || 'Select'}
+      label={label || "Select"}
     />
   );
 };
