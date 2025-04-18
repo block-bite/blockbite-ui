@@ -1,18 +1,16 @@
 import { j as e } from "./node_modules/react/jsx-runtime.js";
 import { Wrap as k } from "./Wrap.js";
-import u from "./node_modules/@wordpress/api-fetch/build-module/index.js";
-import { TextControl as b } from "@wordpress/components";
+import b from "@wordpress/api-fetch";
+import { TextControl as h } from "@wordpress/components";
 import { useState as c, useEffect as a } from "@wordpress/element";
-import "./node_modules/@wordpress/i18n/build-module/sprintf.js";
-import "./node_modules/tannin/index.js";
-import { __ as p } from "./node_modules/@wordpress/i18n/build-module/default-i18n.js";
-function w(r) {
-  const [t, s] = c(""), [i, n] = c([]), [o, m] = c({
+import { __ as p } from "@wordpress/i18n";
+function g(s) {
+  const [t, r] = c(""), [i, n] = c([]), [o, u] = c({
     url: "",
     title: ""
   });
   return a(() => {
-    t !== "" && (n(null), u({
+    t !== "" && (n(null), b({
       path: `/blockbite/v1/block-helpers/get-links/${t}`
     }).then(
       (l) => {
@@ -20,34 +18,34 @@ function w(r) {
       }
     ));
   }, [t]), a(() => {
-    o.url !== "" && r.parentCallback(o);
+    o.url !== "" && s.parentCallback(o);
   }, [o]), /* @__PURE__ */ e.jsxs(k, { className: "blockbite--editor-linkwrap", children: [
     /* @__PURE__ */ e.jsx(
-      b,
+      h,
       {
         label: p("Search link", "blockbitelinks"),
         value: t,
         placeholder: "Example: About",
-        onChange: (l) => s(l),
+        onChange: (l) => r(l),
         help: p("Type a post, page, title", "blockbitelinks")
       }
     ),
     t ? /* @__PURE__ */ e.jsx("div", { className: "blockbite--editor-linklist", children: /* @__PURE__ */ e.jsx(
-      h,
+      m,
       {
         links: i,
         onActiveLink: (l) => [
-          m({ ...l }),
-          s("")
+          u({ ...l }),
+          r("")
         ]
       }
     ) }) : null
   ] });
 }
-function h({ links: r, onActiveLink: t }) {
-  const s = [];
-  return r === null ? /* @__PURE__ */ e.jsx("p", { children: "Loading..." }) : r.length === 0 ? /* @__PURE__ */ e.jsx("p", { children: "No Results" }) : (r.forEach((i) => {
-    s.push(
+function m({ links: s, onActiveLink: t }) {
+  const r = [];
+  return s === null ? /* @__PURE__ */ e.jsx("p", { children: "Loading..." }) : s.length === 0 ? /* @__PURE__ */ e.jsx("p", { children: "No Results" }) : (s.forEach((i) => {
+    r.push(
       // add key
       /* @__PURE__ */ e.jsx(k, { children: /* @__PURE__ */ e.jsxs(
         "span",
@@ -62,8 +60,8 @@ function h({ links: r, onActiveLink: t }) {
         }
       ) }, i.id)
     );
-  }), s);
+  }), r);
 }
 export {
-  w as default
+  g as default
 };

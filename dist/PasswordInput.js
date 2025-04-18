@@ -1,7 +1,7 @@
 import { j as s } from "./node_modules/react/jsx-runtime.js";
 import { __experimentalInputControl as p, __experimentalInputControlSuffixWrapper as a, Button as i } from "@wordpress/components";
 import { useState as m } from "@wordpress/element";
-import { SVG as x, Path as c } from "./node_modules/@wordpress/primitives/build-module/svg/index.js";
+import { SVG as x, Path as c } from "@wordpress/primitives";
 const d = ({
   label: C,
   value: t,

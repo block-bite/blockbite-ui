@@ -1,14 +1,9 @@
 import { j as l } from "./node_modules/react/jsx-runtime.js";
-import "./node_modules/@wordpress/block-editor/build-module/hooks/index.js";
-import "./node_modules/@wordpress/block-editor/build-module/store/index.js";
-import { PanelRow as b, Button as a } from "@wordpress/components";
+import { MediaUploadCheck as a, MediaUpload as m } from "@wordpress/block-editor";
+import { PanelRow as b, Button as n } from "@wordpress/components";
 import { useState as j, useEffect as x } from "@wordpress/element";
-import "./node_modules/@wordpress/i18n/build-module/sprintf.js";
-import "./node_modules/tannin/index.js";
-import { __ as r } from "./node_modules/@wordpress/i18n/build-module/default-i18n.js";
-import { MediaUploadCheck as n } from "./node_modules/@wordpress/block-editor/build-module/components/media-upload/check.js";
-import m from "./node_modules/@wordpress/block-editor/build-module/components/media-upload/index.js";
-function C({ mediaProps: d, mediaCallback: u }) {
+import { __ as r } from "@wordpress/i18n";
+function S({ mediaProps: d, mediaCallback: u }) {
   const c = [
     "image",
     "video",
@@ -16,7 +11,7 @@ function C({ mediaProps: d, mediaCallback: u }) {
     "svg",
     "text/plain",
     "application/json"
-  ], [t, p] = j({
+  ], [t, g] = j({
     id: null,
     url: "",
     sizes: [],
@@ -26,9 +21,9 @@ function C({ mediaProps: d, mediaCallback: u }) {
     height: 0
   });
   x(() => {
-    d && p({ ...d });
+    d && g({ ...d });
   }, [d]);
-  const g = () => {
+  const p = () => {
     u({ ...{
       mediaId: 0,
       mediaUrl: ""
@@ -55,14 +50,14 @@ function C({ mediaProps: d, mediaCallback: u }) {
     u({ ...f });
   };
   return /* @__PURE__ */ l.jsxs(b, { children: [
-    t.id !== null && /* @__PURE__ */ l.jsx(n, { children: /* @__PURE__ */ l.jsx(
+    t.id !== null && /* @__PURE__ */ l.jsx(a, { children: /* @__PURE__ */ l.jsx(
       m,
       {
         onSelect: h,
         value: t.id,
         allowedTypes: c,
         render: ({ open: e }) => /* @__PURE__ */ l.jsxs(
-          a,
+          n,
           {
             className: t.id === 0 ? "editor-post-featured-image__toggle" : "editor-post-featured-image__preview",
             onClick: e,
@@ -80,19 +75,19 @@ function C({ mediaProps: d, mediaCallback: u }) {
         )
       }
     ) }),
-    t.id !== 0 && /* @__PURE__ */ l.jsx(n, { children: /* @__PURE__ */ l.jsx(
+    t.id !== 0 && /* @__PURE__ */ l.jsx(a, { children: /* @__PURE__ */ l.jsx(
       m,
       {
         title: r("Replace media", "blockbite"),
         value: t.id,
         onSelect: h,
         allowedTypes: c,
-        render: ({ open: e }) => /* @__PURE__ */ l.jsx(a, { onClick: e, children: r("Replace media", "blockbite") })
+        render: ({ open: e }) => /* @__PURE__ */ l.jsx(n, { onClick: e, children: r("Replace media", "blockbite") })
       }
     ) }),
-    t.id !== 0 && /* @__PURE__ */ l.jsx(n, { children: /* @__PURE__ */ l.jsx(a, { onClick: () => g(), isDestructive: !0, children: r("Remove media", "blockbite") }) })
+    t.id !== 0 && /* @__PURE__ */ l.jsx(a, { children: /* @__PURE__ */ l.jsx(n, { onClick: () => p(), isDestructive: !0, children: r("Remove media", "blockbite") }) })
   ] });
 }
 export {
-  C as default
+  S as default
 };
