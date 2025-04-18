@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "ESNext",
+      "jsx": "react-jsx",
+      "moduleResolution": "node",
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "declarationDir": "./dist",
+      "outDir": "./dist",
+      "baseUrl": "src",
+      "paths": {
+        "@components/*": ["components/*"]
+      },
+      "strict": false,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitAny": false,
+      "noEmitOnError": false
+    },
+    "include": ["src/types/**/*", "src/components/ui/**/*"],
+    "exclude": ["node_modules", "dist", "build"]
+  }
+  
