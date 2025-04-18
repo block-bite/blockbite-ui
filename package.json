@@ -1,6 +1,6 @@
 {
   "name": "@blockbite/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared React UI components for Blockbite apps",
   "author": "Blockbite",
   "license": "MIT",
