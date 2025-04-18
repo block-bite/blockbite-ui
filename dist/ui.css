@@ -1,0 +1,66 @@
+/* 
+  only used to target children of the UI components 
+  in favour of [&>.chidren] selector within components
+*/
+
+/* TextControl.tsx */
+.blockbite-ui__text-control-label {
+  input {
+    @apply mb-1 appearance-none rounded-none !border-0 border-b-2 border-l-2 border-wordpress bg-transparent p-1 text-[13px] font-bold focus:border-b-2;
+  }
+}
+
+/* DropdownPicker.tsx */
+.blockbite-ui__dropdown-picker {
+  .components-button {
+    @apply !h-[32px];
+  }
+}
+
+/* Modal.tsx */
+.blockbite-ui__modal .components-modal__content {
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+
+/* ButtonToggle.tsx */
+.blockbite-ui__button-group--tabs {
+  .blockbite-ui__button--default {
+    @apply h-[40px] rounded-none !border-x-0 !border-t-0 border-b-2;
+    &.is-pressed {
+      @apply !border-x-0 !border-b-2;
+    }
+  }
+}
+
+/* Popover.tsx */
+.blockbite-ui__popover {
+  .components-popover__content {
+    @apply w-full;
+  }
+}
+
+/* Button.tsx */
+.blockbite-ui__button--default {
+  @apply !rounded-sm !border-[0.1px] border-solid !border-grey !p-2 !text-[12px] !font-light !text-black !shadow-none hover:bg-easy;
+  &.is-pressed {
+    @apply border !border-wordpress !bg-transparent !text-wordpress;
+  }
+  .blockbite--icon {
+    @apply scale-[1.2];
+  }
+}
+.blockbite-ui__button {
+  &.is-icon {
+    @apply h-[30px] w-[30px];
+  }
+}
+/* Large Round Button for nav landings */
+.blockbite-ui__button--rounded {
+  @apply flex !h-14 !w-14 items-center justify-center !rounded-full border !border-black bg-easy !text-black hover:bg-slate-300;
+}
+
+/* Checkbox.tsx */
+.blockbite-ui__checkbox span {
+  @apply !font-sans !text-[12px] !font-normal !text-black;
+}

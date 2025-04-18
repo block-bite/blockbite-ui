@@ -1,6 +1,6 @@
 {
   "name": "@blockbite/ui",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Shared React UI components for Blockbite apps",
   "author": "Blockbite",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+   "type": "module",
   "publishConfig": {
     "access": "public"
   },
@@ -57,5 +58,8 @@
     "blockbite",
     "vite",
     "typescript"
-  ]
+  ],
+  "dependencies": {
+    "vite-plugin-static-copy": "^2.3.1"
+  }
 }

@@ -2,42 +2,47 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import fs from "fs";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
-// Update path to new ui directory
-const uiDir = path.resolve(__dirname, "src/");
-
-// Optional alias for easier imports
-const alias = {
-  "@ui": uiDir,
-};
-
-const inputEntries = fs
-  .readdirSync(uiDir)
-  .filter((file) => file.endsWith(".tsx"))
-  .reduce((entries, file) => {
-    const name = file.replace(/\.tsx$/, "");
-    entries[name] = path.resolve(uiDir, file);
-    return entries;
-  }, {} as Record<string, string>);
+const srcDir = path.resolve(__dirname, "src");
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(srcDir, "ui.css"),
+          dest: ".", // this means it will be copied to `dist/ui.css`
+        },
+      ],
+    }),
+  ],
   resolve: {
-    alias,
+    alias: {
+      "@ui": srcDir,
+    },
   },
   build: {
     target: "esnext",
     outDir: "dist",
     lib: {
-      entry: path.resolve(uiDir, "index.ts"),
+      entry: path.resolve(srcDir, "index.ts"),
       formats: ["es"],
     },
     rollupOptions: {
-      input: inputEntries,
+      input: fs
+        .readdirSync(srcDir)
+        .filter((file) => file.endsWith(".tsx"))
+        .reduce((entries, file) => {
+          const name = file.replace(/\.tsx$/, "");
+          entries[name] = path.resolve(srcDir, file);
+          return entries;
+        }, {}),
       output: {
         entryFileNames: "[name].js",
         preserveModules: true,
-        preserveModulesRoot: "src/", // <- updated
+        preserveModulesRoot: "src",
       },
       external: [
         "react",
@@ -48,7 +53,6 @@ export default defineConfig({
         "@wordpress/element",
         "@blockbite/icons",
       ],
-      // exclude _dev folder in src
     },
   },
 });
